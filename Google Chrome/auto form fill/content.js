@@ -53,6 +53,20 @@ var login_parameters = {
         "login_button":{
             "querySelector":"loading-button"
         }
+    },
+    
+    "##icitifyportals@gmail.com":{
+        "username":{
+            "querySelector":"[type='email']",
+            "value":"icitifyportals@gmail.com"
+        },
+        "password":{
+            "querySelector":"[type='password']",
+            "value":"5h7XL5KwXQrLHdQ"
+        },
+        "login_button":{
+            "querySelector":"loading-button"
+        }
     }
 }
 
