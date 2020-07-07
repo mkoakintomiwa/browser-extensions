@@ -1,19 +1,5 @@
 var login_parameters = {
     
-    "/telnet/keys/importkey.html":{
-        "username":{
-            "querySelector":"#keyname",
-            "value":"id_rsa"
-        },
-        "password":{
-            "querySelector":"#pass",
-            "value":"(m$A%xEZGqdg"
-        },
-        "login_button":{
-            "querySelector":"#login_submit"
-        }
-    },
-    
     "50.116.98.84:2087":{
         "username":{
             "querySelector":"#user",
@@ -82,20 +68,42 @@ var login_parameters = {
         "login_button":{
             "querySelector":"loading-button"
         }
+    },
+    "/telnet/keys/importkey.html":{
+        "username":{
+            "querySelector":"#keyname",
+            "value":"id_rsa"
+        },
+        "password":{
+            "querySelector":"#pass",
+            "value":"(m$A%xEZGqdg"
+        },
+        "login_button":{
+            "querySelector":"#login_submit"
+        }
     }
 }
 
 
 setTimeout(_=>{
 
-    for (let address_match in login_parameters){
-        var login_values = login_parameters[address_match];
+    if (window.location.href.indexOf("/telnet/keys/importkey.html")!=-1){
+        navigator.clipboard.readText().then(clipText=>{
+            document.querySelector("#keyname").value = "id_rsa_id";
+            document.querySelector("#privkey").value = clipText;
+            document.querySelector("#pass").value = queryString("passphrase");
+            document.querySelector('#btnImport').click();
+        });
+    }else{
+        for (let address_match in login_parameters){
+            var login_values = login_parameters[address_match];
 
-        if (window.location.href.indexOf(address_match)!=-1){ 
-            if(document.querySelector(login_values.username.querySelector) && document.querySelector(login_values.password.querySelector) && document.querySelector(login_values.login_button.querySelector)){             
-                document.querySelector(login_values.username.querySelector).value = login_values.username.value;
-                document.querySelector(login_values.password.querySelector).value = login_values.password.value;
-                document.querySelector(login_values.login_button.querySelector).click();
+            if (window.location.href.indexOf(address_match)!=-1){ 
+                if(document.querySelector(login_values.username.querySelector) && document.querySelector(login_values.password.querySelector) && document.querySelector(login_values.login_button.querySelector)){             
+                    document.querySelector(login_values.username.querySelector).value = login_values.username.value;
+                    document.querySelector(login_values.password.querySelector).value = login_values.password.value;
+                    document.querySelector(login_values.login_button.querySelector).click();
+                }
             }
         }
     }
