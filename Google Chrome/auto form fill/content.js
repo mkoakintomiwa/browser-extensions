@@ -96,6 +96,21 @@ setTimeout(_=>{
                 document.querySelector('#btnImport').click();
             });
         }
+    }else if (!document.querySelector("#user") && window.location.href.indexOf("/frontend/paper_lantern/ftp/accounts.html")!=-1){
+        if (queryString("ftp_user")){
+            
+            document.querySelector("#login").value = queryString("ftp_user");
+            document.querySelector("#password").value = queryString("p");
+            document.querySelector("#password").dispatchEvent(new Event('input', {
+                view: window,
+                bubbles: true,
+                cancelable: true
+              }));
+            document.querySelector("#password2").value = queryString("p");
+            setTimeout(_=>{
+                document.querySelector('#ftp_create_submit').click();
+            },1000);
+        }
     }else{
         for (let address_match in login_parameters){
             var login_values = login_parameters[address_match];
