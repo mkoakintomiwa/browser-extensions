@@ -1,4 +1,19 @@
 var login_parameters = {
+    
+    "/telnet/keys/importkey.html":{
+        "username":{
+            "querySelector":"#keyname",
+            "value":"id_rsa"
+        },
+        "password":{
+            "querySelector":"#pass",
+            "value":"(m$A%xEZGqdg"
+        },
+        "login_button":{
+            "querySelector":"#login_submit"
+        }
+    },
+    
     "50.116.98.84:2087":{
         "username":{
             "querySelector":"#user",
