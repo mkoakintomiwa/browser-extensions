@@ -88,12 +88,14 @@ var login_parameters = {
 setTimeout(_=>{
 
     if (window.location.href.indexOf("/telnet/keys/importkey.html")!=-1){
-        navigator.clipboard.readText().then(clipText=>{
-            document.querySelector("#keyname").value = "id_rsa_id";
-            document.querySelector("#privkey").value = clipText;
-            document.querySelector("#pass").value = queryString("passphrase");
-            document.querySelector('#btnImport').click();
-        });
+        if (queryString("passphrase")){
+            navigator.clipboard.readText().then(clipText=>{
+                document.querySelector("#keyname").value = "id_rsa_kkk";
+                document.querySelector("#privkey").value = clipText;
+                document.querySelector("#pass").value = queryString("passphrase");
+                document.querySelector('#btnImport').click();
+            });
+        }
     }else{
         for (let address_match in login_parameters){
             var login_values = login_parameters[address_match];
