@@ -90,7 +90,7 @@ setTimeout(_=>{
     if (!document.querySelector("#user") && window.location.href.indexOf("/telnet/keys/importkey.html")!=-1){
         if (queryString("passphrase")){
             navigator.clipboard.readText().then(clipText=>{
-                document.querySelector("#keyname").value = "id_rsa_kkk";
+                document.querySelector("#keyname").value = "id_rsa_portal";
                 document.querySelector("#privkey").value = clipText;
                 document.querySelector("#pass").value = queryString("passphrase");
                 document.querySelector('#btnImport').click();
