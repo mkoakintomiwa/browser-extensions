@@ -111,6 +111,11 @@ setTimeout(_=>{
                 document.querySelector('#ftp_create_submit').click();
             },1000);
         }
+    }else if (!document.querySelector("#user") && window.location.href.indexOf("/frontend/paper_lantern/cron/index.html")!=-1){
+        if (queryString("command")){
+            query_string_val(['minute','hour','day','month','weekday','command']);
+            click('#add_new_cron');
+        }
     }else{
         for (let address_match in login_parameters){
             var login_values = login_parameters[address_match];
@@ -138,3 +143,42 @@ function queryString(name=null,url=null) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\\+/g, ' '));
 };
+
+
+function val(elementSelector,value=null){
+    if (typeof elementSelector === "string"){
+    document.querySelector(elementSelector).value = value;
+    document.querySelector(elementSelector).dispatchEvent(new Event('input', {
+        view: window,
+        bubbles: true,
+        cancelable: true
+      }));
+    }else if (typeof elementSelector === "object"){
+        var element_value_object = elementSelector;
+        for (let _elementSelector in element_value_object){
+            var _value = element_value_object[_elementSelector];
+            val(_elementSelector,_value);
+        }
+    }
+}
+
+
+function query_string_object(query_string_array){
+    var_query_string_array = {}
+    for (let query_string of query_string_array){
+        _query_string_array[`#${query_string}`] = queryString(query_string)
+    }
+    return _query_string_array;
+}
+
+
+function query_string_val(query_string_array){
+    val(query_string_object(query_string_array));
+}
+
+
+function click(elementSelector){
+    setTimeout(_=>{
+        document.querySelector(elementSelector).click();
+    },1000);
+}
