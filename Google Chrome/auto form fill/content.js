@@ -164,7 +164,7 @@ function val(elementSelector,value=null){
 
 
 function query_string_object(query_string_array){
-    var_query_string_array = {}
+    var _query_string_array = {}
     for (let query_string of query_string_array){
         _query_string_array[`#${query_string}`] = queryString(query_string)
     }
