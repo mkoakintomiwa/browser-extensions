@@ -1,4 +1,19 @@
 var login_parameters = {
+
+    "162.144.37.177:2087":{
+        "username":{
+            "querySelector":"#user",
+            "value":"root"
+        },
+        "password":{
+            "querySelector":"#pass",
+            "value":"8I9o0p-["
+        },
+        "login_button":{
+            "querySelector":"#login_submit"
+        }
+    },
+
     
     "50.116.98.84:2087":{
         "username":{
@@ -14,6 +29,8 @@ var login_parameters = {
         }
     },
 
+
+
     ":2083":{
         "username":{
             "querySelector":"#user",
@@ -27,6 +44,8 @@ var login_parameters = {
             "querySelector":"#login_submit"
         }
     },
+
+
 
     "my.bluehost.com/web-hosting/cplogin":{
         "username":{
@@ -42,6 +61,8 @@ var login_parameters = {
         }
     },
 
+
+
     "dashboard.paystack.com/#/login_":{
         "username":{
             "querySelector":"[type='email']",
@@ -56,6 +77,9 @@ var login_parameters = {
         }
     },
     
+
+
+
     "##icitifyportals@gmail.com":{
         "username":{
             "querySelector":"[type='email']",
@@ -69,6 +93,10 @@ var login_parameters = {
             "querySelector":"loading-button"
         }
     },
+
+
+
+
     "/telnet/keys/importkey.html":{
         "username":{
             "querySelector":"#keyname",
