@@ -96,6 +96,23 @@ var login_parameters = {
 
 
 
+    
+    "##icitifysoution@gmail.com":{
+        "username":{
+            "querySelector":"[type='email']",
+            "value":"icitifysolution@gmail.com"
+        },
+        "password":{
+            "querySelector":"[type='password']",
+            "value":"Icitify123@"
+        },
+        "login_button":{
+            "querySelector":"loading-button"
+        }
+    },
+
+
+
 
     "/telnet/keys/importkey.html":{
         "username":{
